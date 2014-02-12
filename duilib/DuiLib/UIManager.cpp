@@ -1,5 +1,6 @@
 #include "StdAfx.h"
 #include <zmouse.h>
+#include "AppLog.h"
 
 namespace DuiLib {
 
@@ -435,7 +436,7 @@ bool CPaintManagerUI::PreMessageHandler(UINT uMsg, WPARAM wParam, LPARAM lParam,
 
 bool CPaintManagerUI::MessageHandler(UINT uMsg, WPARAM wParam, LPARAM lParam, LRESULT& lRes)
 {
-    if( m_hWndPaint == NULL )
+	if( m_hWndPaint == NULL )
 	{
 		return false;
 	}
@@ -443,7 +444,7 @@ bool CPaintManagerUI::MessageHandler(UINT uMsg, WPARAM wParam, LPARAM lParam, LR
 	TNotifyUI* pMsg = NULL;
     while( pMsg = static_cast<TNotifyUI*>(m_aAsyncNotify.GetAt(0)) ) 
 	{
-        m_aAsyncNotify.Remove(0);
+		m_aAsyncNotify.Remove(0);
         if( pMsg->pSender != NULL ) 
 		{
             if( pMsg->pSender->OnNotify ) 
@@ -607,10 +608,7 @@ bool CPaintManagerUI::MessageHandler(UINT uMsg, WPARAM wParam, LPARAM lParam, LR
             ::BeginPaint(m_hWndPaint, &ps);
             if( m_bOffscreenPaint )
             {
-                HBITMAP hOldBitmap = (HBITMAP)
-				{
-					::SelectObject(m_hDcOffscreen, m_hbmpOffscreen);
-				}
+                HBITMAP hOldBitmap = (HBITMAP)::SelectObject(m_hDcOffscreen, m_hbmpOffscreen);
                 int iSaveDC = ::SaveDC(m_hDcOffscreen);
                 if( m_bAlphaBackground ) 
 				{
@@ -811,29 +809,43 @@ bool CPaintManagerUI::MessageHandler(UINT uMsg, WPARAM wParam, LPARAM lParam, LR
             POINT pt = { GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam) };
             m_ptLastMousePos = pt;
             CControlUI* pNewHover = FindControl(pt);
-            if( pNewHover != NULL && pNewHover->GetManager() != this ) break;
+            if( pNewHover != NULL && pNewHover->GetManager() != this )
+			{
+				break;
+			}
             TEventUI event = { 0 };
             event.ptMouse = pt;
             event.dwTimestamp = ::GetTickCount();
-            if( pNewHover != m_pEventHover && m_pEventHover != NULL ) {
+            if( pNewHover != m_pEventHover && m_pEventHover != NULL ) 
+			{
+				APP_LOG("************UIEVENT_MOUSELEAVE \r\n");
                 event.Type = UIEVENT_MOUSELEAVE;
                 event.pSender = m_pEventHover;
                 m_pEventHover->Event(event);
                 m_pEventHover = NULL;
-                if( m_hwndTooltip != NULL ) ::SendMessage(m_hwndTooltip, TTM_TRACKACTIVATE, FALSE, (LPARAM) &m_ToolTip);
+                if( m_hwndTooltip != NULL ) 
+				{
+					::SendMessage(m_hwndTooltip, TTM_TRACKACTIVATE, FALSE, (LPARAM) &m_ToolTip);
+				}
             }
-            if( pNewHover != m_pEventHover && pNewHover != NULL ) {
+            if( pNewHover != m_pEventHover && pNewHover != NULL ) 
+			{
+				APP_LOG("************UIEVENT_MOUSEENTER \r\n");
                 event.Type = UIEVENT_MOUSEENTER;
                 event.pSender = pNewHover;
                 pNewHover->Event(event);
                 m_pEventHover = pNewHover;
             }
-            if( m_pEventClick != NULL ) {
+            if( m_pEventClick != NULL ) 
+			{
+				APP_LOG("************UIEVENT_MOUSEMOVE \r\n");
                 event.Type = UIEVENT_MOUSEMOVE;
                 event.pSender = m_pEventClick;
                 m_pEventClick->Event(event);
             }
-            else if( pNewHover != NULL ) {
+            else if( pNewHover != NULL ) 
+			{
+				APP_LOG("************UIEVENT_MOUSEMOVE \r\n");
                 event.Type = UIEVENT_MOUSEMOVE;
                 event.pSender = pNewHover;
                 pNewHover->Event(event);

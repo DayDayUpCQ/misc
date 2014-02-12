@@ -305,7 +305,6 @@ public:
 		case WM_SYSCOMMAND:    
 			lRes = OnSysCommand(uMsg, wParam, lParam, bHandled); 
 			break;
-
 		default:
 			bHandled = FALSE;
 		}

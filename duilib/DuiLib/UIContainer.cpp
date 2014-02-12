@@ -1,4 +1,5 @@
 #include "StdAfx.h"
+#include "AppLog.h"
 
 namespace DuiLib {
 
@@ -586,7 +587,7 @@ void CContainerUI::SetManager(CPaintManagerUI* pManager, CControlUI* pParent, bo
 
 CControlUI* CContainerUI::FindControl(FINDCONTROLPROC Proc, LPVOID pData, UINT uFlags)
 {
-    // Check if this guy is valid
+	// Check if this guy is valid
     if( (uFlags & UIFIND_VISIBLE) != 0 && !IsVisible() ) return NULL;
     if( (uFlags & UIFIND_ENABLED) != 0 && !IsEnabled() ) return NULL;
     if( (uFlags & UIFIND_HITTEST) != 0 ) {
@@ -638,8 +639,10 @@ CControlUI* CContainerUI::FindControl(FINDCONTROLPROC Proc, LPVOID pData, UINT u
             } 
         }
     }
-
-    if( pResult == NULL ) pResult = CControlUI::FindControl(Proc, pData, uFlags);
+    if( pResult == NULL )
+	{
+		pResult = CControlUI::FindControl(Proc, pData, uFlags);
+	}
     return pResult;
 }
 

@@ -919,6 +919,10 @@
 			Filter="h;hpp;hxx;hm;inl"
 			>
 			<File
+				RelativePath=".\AppLog.h"
+				>
+			</File>
+			<File
 				RelativePath="StdAfx.h"
 				>
 			</File>
