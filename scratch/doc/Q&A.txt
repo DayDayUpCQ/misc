@@ -1,0 +1,9 @@
+1. 选择MoreBlocks创建新的Block该block的作用，以及如何删除不需要的block，设置自定义的类似于设置
+   自定义的函数，但是当前并未找到如何删除自定义的Block
+
+2. 画笔只有在选择精灵的时候才会被使用
+
+3. 当设置精灵反方向时，可设置其碰到边缘就反弹
+
+4. 参照http://www.zsqz.com:8090/moodle/mod/page/view.php?id=253的小猫追球
+
