@@ -1,0 +1,153 @@
+选择器
+1. 标记选择器
+   一旦声明标记选择器，那么页面中的所有该标记都会产生变化
+2. 类别选择器
+  若希望其中的某一个<p>标记不是红色，其他的是蓝色，此时则需要使用类别选择器
+  类别(class)选择器的名称可以由用户自定义，格式如下：
+  .class {color:green; font-size:20px;} (其中class为类别名称)
+  <!-- (该处的注释html符合是为防止不支持css代码的浏览器将代码显示到页面中)
+	.one{
+		color:red;
+		font-size:18px;
+	}
+	.two{
+		color:green;
+		font-size:20px;
+	}
+  -->
+  <body>
+	<p class="one">class选择器1</p>
+	<p class="two">class选择器2</p>
+  </body>
+
+3. 标记类别选择器
+	h3.class{color:red; font-size:23px}
+	h3.special{color:red; font-size:23px}
+	该种方式标记special类别选择器仅用于<h3>标签
+
+4. ID选择器
+   ID选择器的使用方法跟class基本相同，但其针对性更强，在HTML的标记中只需利用id属性
+   #id {color:yellow; font-size:30px}
+   #one {
+		font-weight:bold;
+   }
+   #two{
+		font-size:30px;
+		color:#009900;
+   }
+   由于javascript等脚本也需要使用HTML的id如getElementById()因此在书写css代码时一个
+   id最多只能赋予一个HTML标记
+
+5. 选择器的集体声明
+	h1, h2, h3, h4, h5,p{
+		color:purple;
+		font-size:15px;
+	}
+	
+	h2.special, .special, #one{
+		text-decoration:underline;
+	}
+	
+6. 全局选择器声明
+	*{
+		color:purple;
+		font-size:15px;
+	}
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
