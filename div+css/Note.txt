@@ -54,15 +54,70 @@
 		font-size:15px;
 	}
 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+7. 选择器的嵌套
+	p b{
+		color:maroon;
+		text-decoration:underline;
+	}
+	改选择器只对<p> <b>test</b></p>中的test起作用,
+	嵌套选择器的使用非常广泛，不只是嵌套的标记本身，类别选择器和ID选择器都可以进行嵌套
+	示例如下
+	.special i{color:red;}       /* 使用了属性special的标记里面包含的<i> */
+	#one li {padding-left:5px;}  /* ID为one的标记里面包含的<li> */
+	td.top.top1 strong {font-size: 16px;} 使用方式如下:
+	<td class="top">
+		<p class="top1">
+			其他内容<strong>CSS控制的部分</strong>其他内容
+		</p>
+	</td>
+
+CSS文字效果
+1. font-family 字体,在CSS中通过font-family属性来控制字体
+	p{
+		font-family:黑体, Arial,宋体,sans-serif;
+	}
+	整句代码告诉浏览器首先在浏览者的计算机中寻找“黑体”，如果该用户的计算机中没有黑体，则寻找
+	Arial字体，如果黑体与Arial都没有，在寻找“宋体”。如果font-family中所声明的所有字体都没有，
+	则使用浏览器的默认字体
+	
+2. font-size 字体大小,示例如下
+	p.one{
+		font-size:15px;  /* 像素,因此实际显示大小与分辨率有关,很常用的方式 */
+	}
+	p.one.span{
+		font-size:200%;  /* 在父标记的基础上乘以200% */
+	}
+	p.two{
+		font-size:30px;
+	}
+	p.two.span{
+		font-size:0.5em; /* 在父标记的基础上乘以0.5 */
+	}
+
+3. color 文字颜色
+	h3{ color:blue;}
+	h3{ color:#00ff;}
+	h3{ color:#0000ff;}
+	h3{ color:rgb(0,0,255);}
+	h3{ color:rgb(0%,0%,100%);}
+	
+4. font-weight文字粗细
+	h1 span{font-weight:100;}
+
+5. font-style 斜体
+	h1 {font-style:italic;}
+
+6. text-decoration文字的下划线，顶划线和删除线
+	p.one {text-decoration:underline;}         /* 下划线 */
+	p.two {text-decoration:overline;}          /* 顶划线 */
+	p.three{text-decoration:line-through;}     /* 删除线 */
+	p.four{text-decoration:blink;}             /* 闪烁 */
+	
+7. text-transform英文的大小写转换
+	p.one{text-transform:capitalize;}    /* 单词首字母大写 */
+	p.two{text-transform:uppercase;}     /* 全部大写 */
+	p.three{text-transform:lowercase;}   /* 全部小写 */
+
  
  
  
