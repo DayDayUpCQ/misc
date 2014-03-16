@@ -118,6 +118,8 @@ CSS文字效果
 	p.two{text-transform:uppercase;}     /* 全部大写 */
 	p.three{text-transform:lowercase;}   /* 全部小写 */
 
+8. 一个盒子模型由content(内容)、border(边框)、padding(间隙)和margin(间隔)这4个部分组成的
+
  
  
  
