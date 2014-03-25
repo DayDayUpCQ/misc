@@ -123,6 +123,8 @@ CSS文字效果
 
 9. border-bottom:1px solid #999999底部边框
 
+8. 一个盒子模型由content(内容)、border(边框)、padding(间隙)和margin(间隔)这4个部分组成的
+
  
  
  
